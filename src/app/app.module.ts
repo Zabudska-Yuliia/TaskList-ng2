@@ -4,16 +4,15 @@ import { FormsModule }    from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { AppComponent }        from './app.component';
 import { HeroDetailComponent } from './hero-details/hero-detail.component';
-import { DashboardComponent }  from './dashboard/dashboard.component';
-import { HeroesComponent }     from './heroes/heroes.component';
-import { HeroService }         from './hero.service';
+import { TaskComponent }  from './task/task.component';
+import { ListComponent }     from './lists/lists.component';
+import { ListService }         from './list.service';
+import { TaskService }          from './task.service';
 
 
 import { HttpModule }    from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import './rxjs-extensions';
-import {HeroSearchComponent} from "./heroes-search/hero-search.component";
-
 
 @NgModule({
   imports: [
@@ -24,33 +23,33 @@ import {HeroSearchComponent} from "./heroes-search/hero-search.component";
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/task',
         pathMatch: 'full'
       },
       {
-        path: 'dashboard',
-        component: DashboardComponent
+        path: 'task',
+        component: TaskComponent
       },
       {
         path: 'detail/:id',
         component: HeroDetailComponent
       },
       {
-        path: 'heroes',
-        component: HeroesComponent
+        path: 'list',
+        component: ListComponent
       }
     ])
   ],
 
   declarations: [
     AppComponent,
-    DashboardComponent,
+    TaskComponent,
     HeroDetailComponent,
-    HeroesComponent,
-    HeroSearchComponent
+    ListComponent,
   ],
   providers: [
-    HeroService
+    ListService,
+    TaskService
   ],
   bootstrap: [ AppComponent ]
 })
